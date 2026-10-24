@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="CROCS CLUB: explora modelos Crocs, elige tu talla y consulta precio y disponibilidad por WhatsApp.">
+<title>CROCS CLUB — Encuentra tu par</title>
+<style>
+:root{--ink:#111;--muted:#666;--line:#e7e7e7;--paper:#fff;--soft:#f5f5f5;--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.topline{height:4px;background:#111}nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:20px}
+.brand{font-weight:950;letter-spacing:-.07em;font-size:23px}.brand small{display:block;font-size:9px;letter-spacing:.22em;font-weight:700;margin-top:3px}
+.navlinks{display:flex;gap:25px;font-size:13px;color:#555}.navlinks a:hover{color:#000}
+.btn{border:1px solid #111;background:#111;color:white;border-radius:999px;padding:13px 19px;font-weight:750;font-size:12px;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#333}.btn.light{background:#fff;color:#111}.btn.light:hover{background:#f2f2f2}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;padding:64px 0 48px}
+.kicker{font-size:10px;letter-spacing:.22em;font-weight:850;text-transform:uppercase;color:#666}
+h1{font-size:clamp(48px,7vw,94px);line-height:.87;letter-spacing:-.085em;margin:18px 0 22px;font-weight:950}
+h1 span{display:block;-webkit-text-stroke:1.5px #111;color:transparent}
+.hero p{max-width:470px;color:#626262;line-height:1.7;font-size:15px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.hero-visual{background:#f2f2f2;min-height:360px;border-radius:24px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px}
+.hero-visual:before{content:"";width:270px;height:270px;border:1px solid #d9d9d9;border-radius:50%;position:absolute}
+.hero-visual:after{content:"";width:205px;height:205px;border:1px solid #ddd;border-radius:50%;position:absolute}
+.hero-mark{position:relative;z-index:1;text-align:center}.hero-mark strong{display:block;font-size:clamp(46px,6vw,74px);letter-spacing:-.09em;font-weight:950}.hero-mark small{font-size:10px;letter-spacing:.2em;font-weight:800}
+.hero-caption{position:absolute;bottom:20px;left:22px;font-size:10px;letter-spacing:.15em;font-weight:800}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.strip div{font-size:11px;font-weight:800;letter-spacing:.08em}.strip small{display:block;color:#777;font-weight:400;letter-spacing:0;margin-top:5px;font-size:12px}
+.catalog{padding:56px 0 70px}.section-top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}
+h2{font-size:clamp(29px,4vw,43px);letter-spacing:-.065em;margin:8px 0;font-weight:900}.section-top p{font-size:12px;color:#666;margin:0}
+.controls{display:grid;grid-template-columns:1fr 210px;gap:10px;margin-bottom:12px}
+input,select{width:100%;border:1px solid #ddd;border-radius:12px;padding:14px 15px;background:#fff;color:#111;outline:none}
+input:focus,select:focus{border-color:#111;box-shadow:0 0 0 3px #0000000d}
+.categories{display:flex;gap:8px;overflow:auto;padding:4px 0 15px}
+.chip{white-space:nowrap;border:1px solid #ddd;background:white;border-radius:999px;padding:9px 13px;font-size:11px;font-weight:750;cursor:pointer}.chip.active,.chip:hover{background:#111;color:white;border-color:#111}
+.size-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:7px 0 23px}.size-title{font-size:10px;letter-spacing:.15em;font-weight:850;margin-right:5px}.size{min-width:37px;padding:9px 10px;border:1px solid #ddd;background:#fff;border-radius:9px;font-size:12px;cursor:pointer}.size.active{background:#111;color:#fff;border-color:#111}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{border:1px solid #e9e9e9;border-radius:17px;overflow:hidden;display:flex;flex-direction:column;min-width:0;background:#fff;transition:transform .25s,border-color .25s,box-shadow .25s;animation:fadein .4s both}
+.card:hover{transform:translateY(-4px);border-color:#bbb;box-shadow:0 14px 35px #0000000a}
+.visual{height:215px;background:#f4f4f4;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.visual img{width:100%;height:100%;object-fit:contain;padding:10px;transition:transform .4s}.card:hover .visual img{transform:scale(1.045)}
+.placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;color:#222}.placeholder .symbol{font-size:45px;line-height:1;font-weight:900}.placeholder small{font-size:9px;letter-spacing:.15em;font-weight:800;color:#777}
+.tag{position:absolute;top:12px;left:12px;background:#fff;border:1px solid #e5e5e5;border-radius:999px;padding:6px 8px;font-size:8px;letter-spacing:.1em;font-weight:850;z-index:1}
+.card-body{padding:15px;display:flex;flex-direction:column;gap:9px;flex:1}.card h3{font-size:15px;line-height:1.25;margin:0;letter-spacing:-.025em}.desc{font-size:11px;color:#666;line-height:1.45;min-height:31px}
+.card-meta{font-size:9px;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:#777}.choose-size{display:flex;gap:5px;flex-wrap:wrap}.mini-size{border:1px solid #e1e1e1;border-radius:6px;background:#fff;padding:5px 6px;font-size:9px;cursor:pointer}.mini-size.active{background:#111;color:#fff;border-color:#111}.card .btn{margin-top:auto;width:100%;padding:11px 8px;font-size:10px}
+.notice{margin-top:24px;background:#f6f6f6;border-radius:14px;padding:16px;color:#666;font-size:11px;line-height:1.6}.notice strong{color:#111}
+.empty{padding:35px 0;color:#666}
+footer{background:#111;color:white;padding:35px 0}.foot{display:flex;align-items:start;justify-content:space-between;gap:30px}.foot p{font-size:12px;color:#aaa;line-height:1.7}.foot .brand small{color:#aaa}.foot-cta{max-width:400px}.foot-cta strong{font-size:18px;letter-spacing:-.03em}
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:10;border-radius:999px;background:#111;color:#fff;padding:15px 18px;font-size:11px;font-weight:850;box-shadow:0 8px 25px #0002}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{gap:20px}.hero-visual{min-height:310px}}
+@media(max-width:650px){.wrap{width:min(100% - 28px,1180px)}nav{height:65px}.navlinks{display:none}.nav-cta{padding:11px 13px;font-size:10px}.hero{grid-template-columns:1fr;padding:43px 0 30px;gap:25px}.hero-visual{min-height:245px}.hero-mark strong{font-size:57px}.strip{grid-template-columns:1fr;gap:14px}.strip div{border-bottom:1px solid #eee;padding-bottom:12px}.strip div:last-child{border:0;padding:0}.catalog{padding:40px 0 50px}.section-top{align-items:start;flex-direction:column;gap:5px}.controls{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.visual{height:155px}.card-body{padding:11px;gap:8px}.card h3{font-size:13px}.desc{font-size:10px;min-height:38px}.card .btn{font-size:9px}.tag{font-size:7px;top:7px;left:7px}.foot{flex-direction:column}.float-wa{right:12px;bottom:12px;padding:13px 15px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<nav class="wrap">
+ <a class="brand" href="#">CROCS CLUB<small>CATÁLOGO URBANO · PERÚ</small></a>
+ <div class="navlinks"><a href="#coleccion">Colección</a><a href="#como-comprar">Cómo comprar</a></div>
+ <a class="btn nav-cta" href="#coleccion">EXPLORAR MODELOS ↘</a>
+</nav>
+<main class="wrap">
+<section class="hero">
+ <div><div class="kicker">Tu estilo. Tu par. Sin complicaciones.</div>
+ <h1>ENCUENTRA<br><span>TU PAR.</span></h1>
+ <p>Explora modelos clásicos, siluetas urbanas y diseños inspirados en tus personajes favoritos. Elige una talla y consúltanos por WhatsApp para confirmar precio y disponibilidad.</p>
+ <div class="hero-actions"><a class="btn" href="#coleccion">VER CATÁLOGO ↓</a><a class="btn light" href="#como-comprar">CÓMO COMPRAR ↗</a></div></div>
+ <div class="hero-visual"><div class="hero-mark"><small>COMFORT MEETS STYLE</small><strong>CROCS<br>CLUB.</strong><small>ESTILO PARA TODOS LOS DÍAS</small></div><div class="hero-caption">COLECCIÓN / 2026</div></div>
+</section>
+<section class="strip" id="como-comprar"><div>01 / ELIGE TU MODELO<small>Explora la colección y encuentra tu estilo.</small></div><div>02 / SELECCIONA TU TALLA<small>Del 35 al 44 como rango de consulta.</small></div><div>03 / CONSULTA POR WHATSAPP<small>Confirmamos precio, color y disponibilidad.</small></div></section>
+<section class="catalog" id="coleccion">
+ <div class="section-top"><div><div class="kicker">Explora la colección</div><h2>EL CATÁLOGO</h2></div><p>Sin precios publicados · Disponibilidad por consulta</p></div>
+ <div class="controls"><input id="search" type="search" placeholder="Buscar: Naruto, BAPE, Bayaband…" aria-label="Buscar modelo"><select id="category" aria-label="Filtrar categoría"><option value="all">Todas las categorías</option><option>Clásicas</option><option>Colaboraciones</option><option>Anime y videojuegos</option><option>Personajes</option><option>Ediciones especiales</option></select></div>
+ <div class="categories" id="chips"><button class="chip active" data-cat="all">TODOS</button><button class="chip" data-cat="Clásicas">CLÁSICAS</button><button class="chip" data-cat="Colaboraciones">COLABORACIONES</button><button class="chip" data-cat="Anime y videojuegos">ANIME / GAMING</button><button class="chip" data-cat="Personajes">PERSONAJES</button><button class="chip" data-cat="Ediciones especiales">EDICIONES ESPECIALES</button></div>
+ <div class="size-row"><span class="size-title">FILTRAR TALLA</span><div id="sizes" class="size-row" style="margin:0"></div><button id="clearSize" class="chip">LIMPIAR</button></div>
+ <div class="grid" id="products" aria-live="polite"></div>
+ <div class="notice"><strong>Importante:</strong> las tallas del 35 al 44 son opciones para consultar, no una confirmación de stock. Las fotos que no estén disponibles se muestran como ficha visual referencial. Antes de comprar, confirma por WhatsApp el modelo exacto, color, talla, autenticidad y precio. Los nombres de algunas ediciones especiales están pendientes de verificar.</div>
+</section>
+</main>
+<footer><div class="wrap foot"><a class="brand" href="#">CROCS CLUB<small>CATÁLOGO URBANO · PERÚ</small></a><div class="foot-cta"><strong>¿YA ENCONTRASTE TU PAR?</strong><p>Escríbenos por WhatsApp. Te ayudaremos a confirmar precio, tallas, colores y opciones de entrega.</p><button class="btn light" onclick="contactGeneral()">CONSULTAR POR WHATSAPP ↗</button></div></div></footer>
+<a class="float-wa" href="#" onclick="contactGeneral();return false">WHATSAPP ↗</a>
+<script>
+const WHATSAPP_NUMBER = "51964617329"; // Reemplaza por tu número peruano: 51 + número, sin + ni espacios.
+const sizes=[35,36,37,38,39,40,41,42,43,44];
+const products=[
+{name:"Classic Clog",cat:"Clásicas",desc:"El modelo clásico para todos los días.",image:"https://f.fcdn.app/imgs/1ae8e4/www.crocs.com.pe/crocpe/bb0c/original/catalogo/CR10001_0002_1/1024-1024/crocs-classic-clog-unisex-black.jpg",tag:"CLÁSICO",symbol:"C",colors:"Consultar colores"},
+{name:"Bayaband Clog",cat:"Clásicas",desc:"Estilo deportivo con franja lateral.",tag:"SPORT",symbol:"B",colors:"Consultar colores"},
+{name:"Crocband Clog",cat:"Clásicas",desc:"Silueta deportiva para distintos looks.",image:"https://f.fcdn.app/imgs/ab933f/www.crocs.com.pe/crocpe/fbe6/original/catalogo/CR11016_4184_1/1024-1024/crocs-crocband-clog-unisex-white-starfish.jpg",tag:"SPORT",symbol:"C",colors:"Consultar colores"},
+{name:"Echo Clog",cat:"Clásicas",desc:"Diseño robusto y urbano.",tag:"URBANO",symbol:"E",colors:"Consultar colores"},
+{name:"Mega Crush Clog",cat:"Clásicas",desc:"Plataforma marcada y look atrevido.",tag:"PLATFORM",symbol:"M",colors:"Consultar colores"},
+{name:"Classic Lined",cat:"Clásicas",desc:"Versión con forro interior.",tag:"LINED",symbol:"L",colors:"Consultar colores"},
+{name:"BAPE x Crocs Classic Clog",cat:"Colaboraciones",desc:"Edición especial asociada a BAPE; confirma referencia exacta.",tag:"COLLAB",symbol:"A",colors:"Consultar edición"},
+{name:"Spider-Man rojo y azul",cat:"Colaboraciones",desc:"Diseño inspirado en Spider-Man, rojo y azul.",image:"https://f.fcdn.app/imgs/910d42/www.crocs.com.pe/crocpe/2369/original/catalogo/CR213518_0077_1/1024-1024/crocs-classic-spiderman-clog-unisex-multi.jpg",tag:"SPIDER-MAN",symbol:"S",colors:"Consultar edición"},
+{name:"Spider-Man negro",cat:"Colaboraciones",desc:"Referencia negra con telaraña en relieve y araña blanca.",image:"assets/spiderman-negro.png",tag:"REFERENCIA ENVIADA",symbol:"S",colors:"Consultar edición"},
+{name:"Naruto",cat:"Anime y videojuegos",desc:"Diseños inspirados en Naruto; edición por confirmar.",tag:"ANIME",symbol:"N",colors:"Consultar edición"},
+{name:"Batman",cat:"Personajes",desc:"Diseño inspirado en Batman; edición por confirmar.",tag:"HÉROES",symbol:"B",colors:"Consultar edición"},
+{name:"Rayo McQueen",cat:"Personajes",desc:"Diseño inspirado en Cars; edición por confirmar.",tag:"CARS",symbol:"R",colors:"Consultar edición"},
+{name:"One Piece",cat:"Anime y videojuegos",desc:"Diseños inspirados en la serie; edición por confirmar.",tag:"ANIME",symbol:"OP",colors:"Consultar edición"},
+{name:"Minecraft",cat:"Anime y videojuegos",desc:"Diseños inspirados en el videojuego; edición por confirmar.",tag:"GAMING",symbol:"M",colors:"Consultar edición"},
+{name:"Dragon Ball",cat:"Anime y videojuegos",desc:"Diseños inspirados en Dragon Ball; edición por confirmar.",tag:"ANIME",symbol:"DB",colors:"Consultar edición"},
+{name:"Stranger Things",cat:"Colaboraciones",desc:"Diseños inspirados en la serie; edición por confirmar.",tag:"SERIES",symbol:"ST",colors:"Consultar edición"},
+{name:"Classic Beige Shell",cat:"Ediciones especiales",desc:"Nombre proporcionado; falta confirmar el nombre comercial exacto.",tag:"POR VERIFICAR",symbol:"CS",colors:"Consultar referencia"},
+{name:"Elima Classic Lined",cat:"Ediciones especiales",desc:"Nombre proporcionado; falta confirmar la referencia exacta.",tag:"POR VERIFICAR",symbol:"EL",colors:"Consultar referencia"}
+];
+let selectedSize=null,activeCat="all";
+const sizeRoot=document.getElementById("sizes");
+sizes.forEach(s=>{const b=document.createElement("button");b.className="size";b.textContent=s;b.setAttribute("aria-label","Filtrar talla "+s);b.onclick=()=>{selectedSize=selectedSize===s?null:s;renderSizes();render()};sizeRoot.appendChild(b)});
+function renderSizes(){[...sizeRoot.children].forEach((b,i)=>b.classList.toggle("active",sizes[i]===selectedSize))}
+function whatsAppUrl(message){return "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message)}
+function contactGeneral(){window.open(whatsAppUrl("Hola, CROCS CLUB. Quiero consultar por los modelos, tallas, precios y disponibilidad."),"_blank","noopener")}
+function cardMessage(p){return `Hola, CROCS CLUB. Quiero consultar por el modelo ${p.name}${selectedSize?", talla "+selectedSize:""}. ¿Me confirman precio, colores y disponibilidad?`}
+function render(){
+ const q=document.getElementById("search").value.toLowerCase().trim(),cat=document.getElementById("category").value;
+ const list=products.filter(p=>(p.name+" "+p.desc+" "+p.cat+" "+p.tag).toLowerCase().includes(q)&&(cat==="all"||p.cat===cat)&&(activeCat==="all"||p.cat===activeCat));
+ const root=document.getElementById("products");root.innerHTML="";
+ if(!list.length){root.innerHTML='<p class="empty">No encontramos modelos con esa búsqueda. Prueba con otro nombre o categoría.</p>';return}
+ list.forEach((p,i)=>{
+  const el=document.createElement("article");el.className="card";el.style.animationDelay=(Math.min(i,10)*35)+"ms";
+  const imageMarkup=p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.remove();this.parentElement.querySelector('.placeholder').style.display='flex'">`:"";
+  el.innerHTML=`<div class="visual"><span class="tag">${p.tag}</span>${imageMarkup}<div class="placeholder" style="${p.image?'display:none':''}"><span class="symbol">${p.symbol}</span><small>CROCS CLUB / ${p.cat.toUpperCase()}</small></div></div><div class="card-body"><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="card-meta">${p.colors}</div><div class="card-meta">Elegir talla para consultar</div><div class="choose-size">${sizes.map(s=>`<button class="mini-size ${selectedSize===s?'active':''}" data-size="${s}">${s}</button>`).join("")}</div><button class="btn" data-contact>CONSULTAR DISPONIBILIDAD ↗</button></div>`;
+  el.querySelectorAll("[data-size]").forEach(b=>b.onclick=()=>{selectedSize=Number(b.dataset.size);renderSizes();render();});
+  el.querySelector("[data-contact]").onclick=()=>window.open(whatsAppUrl(cardMessage(p)),"_blank","noopener");
+  root.appendChild(el);
+ });
+}
+document.getElementById("search").addEventListener("input",render);
+document.getElementById("category").addEventListener("change",e=>{activeCat="all";document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("active",b.dataset.cat==="all"));render()});
+document.querySelectorAll(".chip[data-cat]").forEach(b=>b.onclick=()=>{activeCat=b.dataset.cat;document.getElementById("category").value=activeCat==="all"?"all":activeCat;document.querySelectorAll(".chip[data-cat]").forEach(x=>x.classList.toggle("active",x===b));render()});
+document.getElementById("clearSize").onclick=()=>{selectedSize=null;renderSizes();render()};
+render();
+</script>
+</body></html>
