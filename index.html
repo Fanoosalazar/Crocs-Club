@@ -83,26 +83,61 @@ footer{background:#111;color:white;padding:35px 0}.foot{display:flex;align-items
 <script>
 const WHATSAPP_NUMBER = "51964617329"; // Reemplaza por tu número peruano: 51 + número, sin + ni espacios.
 const sizes=[35,36,37,38,39,40,41,42,43,44];
+const localImages={
+"Classic Clog — Negro":"assets/classic-negro.png","Classic Clog — Blanco":"assets/classic-blanco.png","Classic Clog — Azul marino":"assets/classic-azul.png","Classic Clog — Rosa":"assets/crocband-rosa.png",
+"Bayaband Clog — Blanco/azul marino":"assets/classic-blanco.png","Bayaband Clog — Negro/blanco":"assets/crocband-negro.png","Bayaband Clog — Azul mineral":"assets/classic-azul.png","Bayaband Clog — Verde militar":"assets/naruto-verde-metal.png","Bayaband Clog — Rosa":"assets/crocband-rosa.png",
+"Crocband Clog — Negro":"assets/crocband-negro.png","Crocband Clog — Azul marino":"assets/crocband-azul-marino.png","Crocband Clog — Blanco":"assets/crocband-blanco.png","Crocband Clog — Beige/melón":"assets/classic-beige.png","Crocband Clog — Azul claro/guava":"assets/crocband-azul.png","Crocband Clog — Guinda":"assets/crocband-guinda.png","Crocband Clog — Gris":"assets/crocband-gris.png","Crocband Clog — Lila":"assets/naruto-morado-rosa.png","Crocband Clog — Rosa":"assets/crocband-rosa.png",
+"Echo Clog — Stucco":"assets/echo-beige.png","Echo Clog — Negro":"assets/echo-negro.png","Mega Crush Clog — Negro":"assets/echo-negro.png","Mega Crush Clog — Blanco":"assets/echo-beige.png","Classic Lined — Negro":"assets/echo-gris.png",
+"BAPE x Crocs Classic Clog":"assets/bape-negro.png","Spider-Man rojo":"assets/spiderman-rojo.png","Spider-Man negro":"assets/spiderman-negro.png",
+"Naruto":"assets/naruto-verde-metal.png","Batman Batimóvil negro":"assets/batman-negro.png","Rayo McQueen":"assets/rayo-mcqueen-rojo.png","Mate":"assets/mate-marron.png","One Piece":"assets/one-piece-luffy.png","Minecraft":"assets/minecraft.png","Dragon Ball":"assets/naruto-akatsuki.png","Stranger Things":"assets/stranger-things.png","Classic Beige Shell":"assets/classic-beige-shell.png","Elima Classic Lined":"assets/echo-gris.png"
+};
 const products=[
-{name:"Classic Clog",cat:"Clásicas",desc:"El modelo clásico para todos los días.",image:"https://f.fcdn.app/imgs/1ae8e4/www.crocs.com.pe/crocpe/bb0c/original/catalogo/CR10001_0002_1/1024-1024/crocs-classic-clog-unisex-black.jpg",tag:"CLÁSICO",symbol:"C",colors:"Consultar colores"},
-{name:"Bayaband Clog",cat:"Clásicas",desc:"Estilo deportivo con franja lateral.",tag:"SPORT",symbol:"B",colors:"Consultar colores"},
-{name:"Crocband Clog",cat:"Clásicas",desc:"Silueta deportiva para distintos looks.",image:"https://f.fcdn.app/imgs/ab933f/www.crocs.com.pe/crocpe/fbe6/original/catalogo/CR11016_4184_1/1024-1024/crocs-crocband-clog-unisex-white-starfish.jpg",tag:"SPORT",symbol:"C",colors:"Consultar colores"},
-{name:"Echo Clog",cat:"Clásicas",desc:"Diseño robusto y urbano.",tag:"URBANO",symbol:"E",colors:"Consultar colores"},
-{name:"Mega Crush Clog",cat:"Clásicas",desc:"Plataforma marcada y look atrevido.",tag:"PLATFORM",symbol:"M",colors:"Consultar colores"},
-{name:"Classic Lined",cat:"Clásicas",desc:"Versión con forro interior.",tag:"LINED",symbol:"L",colors:"Consultar colores"},
-{name:"BAPE x Crocs Classic Clog",cat:"Colaboraciones",desc:"Edición especial asociada a BAPE; confirma referencia exacta.",tag:"COLLAB",symbol:"A",colors:"Consultar edición"},
-{name:"Spider-Man rojo y azul",cat:"Colaboraciones",desc:"Diseño inspirado en Spider-Man, rojo y azul.",image:"https://f.fcdn.app/imgs/910d42/www.crocs.com.pe/crocpe/2369/original/catalogo/CR213518_0077_1/1024-1024/crocs-classic-spiderman-clog-unisex-multi.jpg",tag:"SPIDER-MAN",symbol:"S",colors:"Consultar edición"},
-{name:"Spider-Man negro",cat:"Colaboraciones",desc:"Referencia negra con telaraña en relieve y araña blanca.",image:"assets/spiderman-negro.png",tag:"REFERENCIA ENVIADA",symbol:"S",colors:"Consultar edición"},
-{name:"Naruto",cat:"Anime y videojuegos",desc:"Diseños inspirados en Naruto; edición por confirmar.",tag:"ANIME",symbol:"N",colors:"Consultar edición"},
-{name:"Batman",cat:"Personajes",desc:"Diseño inspirado en Batman; edición por confirmar.",tag:"HÉROES",symbol:"B",colors:"Consultar edición"},
-{name:"Rayo McQueen",cat:"Personajes",desc:"Diseño inspirado en Cars; edición por confirmar.",tag:"CARS",symbol:"R",colors:"Consultar edición"},
-{name:"One Piece",cat:"Anime y videojuegos",desc:"Diseños inspirados en la serie; edición por confirmar.",tag:"ANIME",symbol:"OP",colors:"Consultar edición"},
-{name:"Minecraft",cat:"Anime y videojuegos",desc:"Diseños inspirados en el videojuego; edición por confirmar.",tag:"GAMING",symbol:"M",colors:"Consultar edición"},
-{name:"Dragon Ball",cat:"Anime y videojuegos",desc:"Diseños inspirados en Dragon Ball; edición por confirmar.",tag:"ANIME",symbol:"DB",colors:"Consultar edición"},
-{name:"Stranger Things",cat:"Colaboraciones",desc:"Diseños inspirados en la serie; edición por confirmar.",tag:"SERIES",symbol:"ST",colors:"Consultar edición"},
-{name:"Classic Beige Shell",cat:"Ediciones especiales",desc:"Nombre proporcionado; falta confirmar el nombre comercial exacto.",tag:"POR VERIFICAR",symbol:"CS",colors:"Consultar referencia"},
-{name:"Elima Classic Lined",cat:"Ediciones especiales",desc:"Nombre proporcionado; falta confirmar la referencia exacta.",tag:"POR VERIFICAR",symbol:"EL",colors:"Consultar referencia"}
+{name:"Classic Clog — Negro",cat:"Clásicas",desc:"Classic Clog en color negro.",image:"https://f.fcdn.app/imgs/1ae8e4/www.crocs.com.pe/crocpe/bb0c/original/catalogo/CR10001_0002_1/1024-1024/crocs-classic-clog-unisex-black.jpg",tag:"CLÁSICO",symbol:"C",colors:"Negro"},
+{name:"Classic Clog — Blanco",cat:"Clásicas",desc:"Classic Clog en color blanco; consulta disponibilidad.",tag:"CLÁSICO",symbol:"C",colors:"Blanco"},
+{name:"Classic Clog — Azul marino",cat:"Clásicas",desc:"Classic Clog en color azul marino; consulta disponibilidad.",tag:"CLÁSICO",symbol:"C",colors:"Azul marino"},
+{name:"Classic Clog — Rosa",cat:"Clásicas",desc:"Classic Clog en color rosa; consulta disponibilidad.",tag:"CLÁSICO",symbol:"C",colors:"Rosa"},
+{name:"Bayaband Clog — Blanco/azul marino",cat:"Clásicas",desc:"Combinación bicolor deportiva; consulta disponibilidad.",tag:"BAYABAND",symbol:"B",colors:"Blanco / azul marino"},
+{name:"Bayaband Clog — Negro/blanco",cat:"Clásicas",desc:"Combinación bicolor clásica; consulta disponibilidad.",tag:"BAYABAND",symbol:"B",colors:"Negro / blanco"},
+{name:"Bayaband Clog — Azul mineral",cat:"Clásicas",desc:"Color azul; consulta disponibilidad.",tag:"BAYABAND",symbol:"B",colors:"Azul mineral"},
+{name:"Bayaband Clog — Verde militar",cat:"Clásicas",desc:"Combinación verde y gris; consulta disponibilidad.",tag:"BAYABAND",symbol:"B",colors:"Verde militar / gris"},
+{name:"Bayaband Clog — Rosa",cat:"Clásicas",desc:"Combinación rosa; consulta disponibilidad.",tag:"BAYABAND",symbol:"B",colors:"Rosa"},
+{name:"Crocband Clog — Negro",cat:"Clásicas",desc:"Crocband con franja deportiva; consulta disponibilidad.",image:"https://f.fcdn.app/imgs/e062db/www.crocs.com.pe/crocpe/a18e/original/catalogo/CR11016_0002_1/1024-1024/crocs-crocband-clog-unisex-black.jpg",tag:"CROCBAND",symbol:"C",colors:"Negro"},
+{name:"Crocband Clog — Azul marino",cat:"Clásicas",desc:"Crocband azul marino; consulta disponibilidad.",image:"https://f.fcdn.app/imgs/61ea98/www.crocs.com.pe/crocpe/bdca/original/catalogo/CR11016_0004_1/1024-1024/crocs-crocband-clog-unisex-navy.jpg",tag:"CROCBAND",symbol:"C",colors:"Azul marino"},
+{name:"Crocband Clog — Blanco",cat:"Clásicas",desc:"Crocband blanco; consulta disponibilidad.",image:"https://f.fcdn.app/imgs/1dad9a/www.crocs.com.pe/crocpe/95f4/original/catalogo/CR11016_0014_1/1024-1024/crocs-crocband-clog-unisex-white.jpg",tag:"CROCBAND",symbol:"C",colors:"Blanco"},
+{name:"Crocband Clog — Beige/melón",cat:"Clásicas",desc:"Crocband en tono neutro; consulta disponibilidad.",image:"https://f.fcdn.app/imgs/051bf4/www.crocs.com.pe/crocpe/829b/original/catalogo/CR11016_0115_1/1024-1024/crocs-crocband-clog-unisex-stucco-melon.jpg",tag:"CROCBAND",symbol:"C",colors:"Beige / melón"},
+{name:"Crocband Clog — Azul claro/guava",cat:"Clásicas",desc:"Combinación azul claro; consulta disponibilidad.",image:"https://f.fcdn.app/imgs/1a753e/www.crocs.com.pe/crocpe/e228/original/catalogo/CR11016_4173_1/1024-1024/crocs-crocband-clog-unisex-blue-frost-guava.jpg",tag:"CROCBAND",symbol:"C",colors:"Azul claro / guava"},
+{name:"Crocband Clog — Guinda",cat:"Clásicas",desc:"Crocband Digital Raspberry; consulta disponibilidad.",image:"https://f.fcdn.app/imgs/734d73/www.crocs.com.pe/crocpe/2b93/original/catalogo/CR11016_3846_1/1024-1024/crocs-crocband-clog-unisex-digital-raspberry.jpg",tag:"CROCBAND",symbol:"C",colors:"Guinda"},
+{name:"Crocband Clog — Gris",cat:"Clásicas",desc:"Color gris; consulta disponibilidad.",tag:"CROCBAND",symbol:"C",colors:"Gris"},
+{name:"Crocband Clog — Lila",cat:"Clásicas",desc:"Color lila; consulta disponibilidad.",tag:"CROCBAND",symbol:"C",colors:"Lila"},
+{name:"Crocband Clog — Rosa",cat:"Clásicas",desc:"Color rosa; consulta disponibilidad.",tag:"CROCBAND",symbol:"C",colors:"Rosa"},
+{name:"Echo Clog — Stucco",cat:"Clásicas",desc:"Diseño robusto y urbano; consulta colores.",tag:"URBANO",symbol:"E",colors:"Consultar colores"},
+{name:"Echo Clog — Negro",cat:"Clásicas",desc:"Diseño robusto y urbano; consulta colores.",tag:"URBANO",symbol:"E",colors:"Negro"},
+{name:"Mega Crush Clog — Negro",cat:"Clásicas",desc:"Plataforma marcada; consulta colores.",tag:"PLATFORM",symbol:"M",colors:"Negro"},
+{name:"Mega Crush Clog — Blanco",cat:"Clásicas",desc:"Plataforma marcada; consulta colores.",tag:"PLATFORM",symbol:"M",colors:"Blanco"},
+{name:"Classic Lined — Negro",cat:"Clásicas",desc:"Versión con forro interior; consulta colores.",tag:"LINED",symbol:"L",colors:"Negro"},
+{name:"BAPE x Crocs Classic Clog",cat:"Colaboraciones",desc:"Edición especial; confirma referencia exacta y disponibilidad.",tag:"COLLAB",symbol:"A",colors:"Consultar edición"},
+{name:"Spider-Man rojo",cat:"Colaboraciones",desc:"Modelo rojo con telarañas negras y emblema de araña, según la foto enviada.",image:"assets/spiderman-rojo.png",tag:"SPIDER-MAN",symbol:"S",colors:"Rojo"},
+{name:"Spider-Man negro",cat:"Colaboraciones",desc:"Referencia negra con telaraña en relieve y araña blanca.",image:"assets/spiderman-negro.png",tag:"REFERENCIA ENVIADA",symbol:"S",colors:"Negro"},
+{name:"Naruto",cat:"Anime y videojuegos",desc:"Diseños inspirados en Naruto; consulta la edición disponible.",tag:"ANIME",symbol:"N",colors:"Consultar edición"},
+{name:"Batman Batimóvil negro",cat:"Personajes",desc:"Modelo negro con detalles inspirados en el Batimóvil, según la foto enviada.",image:"assets/batman-negro.png",tag:"BATMAN",symbol:"B",colors:"Negro"},
+{name:"Rayo McQueen",cat:"Personajes",desc:"Diseño inspirado en Cars; consulta la edición disponible.",tag:"CARS",symbol:"R",colors:"Consultar edición"},
+{name:"One Piece",cat:"Anime y videojuegos",desc:"Diseños inspirados en la serie; consulta la edición disponible.",tag:"ANIME",symbol:"OP",colors:"Consultar edición"},
+{name:"Minecraft",cat:"Anime y videojuegos",desc:"Diseños inspirados en el videojuego; consulta la edición disponible.",tag:"GAMING",symbol:"M",colors:"Consultar edición"},
+{name:"Dragon Ball",cat:"Anime y videojuegos",desc:"Diseños inspirados en Dragon Ball; consulta la edición disponible.",tag:"ANIME",symbol:"DB",colors:"Consultar edición"},
+{name:"Stranger Things",cat:"Colaboraciones",desc:"Diseños inspirados en la serie; consulta la edición disponible.",tag:"SERIES",symbol:"ST",colors:"Consultar edición"},
+{name:"Classic Beige Shell",cat:"Ediciones especiales",desc:"Nombre proporcionado; confirma el nombre comercial exacto.",tag:"POR VERIFICAR",symbol:"CS",colors:"Consultar referencia"},
+{name:"Elima Classic Lined",cat:"Ediciones especiales",desc:"Nombre proporcionado; confirma la referencia exacta.",tag:"POR VERIFICAR",symbol:"EL",colors:"Consultar referencia"}
+,{name:"Naruto — verde con placa metálica",cat:"Anime y videojuegos",desc:"Modelo verde con placa metálica, según la foto enviada.",image:"assets/naruto-verde-metal.png",tag:"NARUTO",symbol:"N",colors:"Verde / metálico"}
+,{name:"Naruto — morado con rosa",cat:"Anime y videojuegos",desc:"Modelo morado con detalles de cuerda rosa, según la foto enviada.",image:"assets/naruto-morado-rosa.png",tag:"NARUTO",symbol:"N",colors:"Morado / rosa"}
+,{name:"Naruto — Akatsuki",cat:"Anime y videojuegos",desc:"Modelo oscuro con estampado rojo, según la referencia enviada.",image:"assets/naruto-akatsuki.png",tag:"NARUTO",symbol:"N",colors:"Negro / rojo"}
+,{name:"BAPE x Crocs — camuflaje verde",cat:"Colaboraciones",desc:"Diseño camuflaje verde, según la foto enviada.",image:"assets/bape-camuflaje-verde.png",tag:"BAPE x CROCS",symbol:"B",colors:"Camuflaje verde"}
+,{name:"BAPE x Crocs — rosado",cat:"Colaboraciones",desc:"Diseño camuflaje rosado, según la foto enviada.",image:"assets/bape-rosado.png",tag:"BAPE x CROCS",symbol:"B",colors:"Rosado"}
+,{name:"BAPE x Crocs — azul",cat:"Colaboraciones",desc:"Diseño camuflaje azul, según la foto enviada.",image:"assets/bape-azul.png",tag:"BAPE x CROCS",symbol:"B",colors:"Azul"}
+,{name:"One Piece — Luffy",cat:"Anime y videojuegos",desc:"Modelo temático de One Piece, según la foto enviada.",image:"assets/one-piece-luffy.png",tag:"ONE PIECE",symbol:"OP",colors:"Rojo / azul"}
+,{name:"One Piece — verde",cat:"Anime y videojuegos",desc:"Modelo verde temático de One Piece, según la foto enviada.",image:"assets/one-piece-verde.png",tag:"ONE PIECE",symbol:"OP",colors:"Verde"}
+
 ];
+products.forEach(p=>{if(!p.image) p.image=localImages[p.name]||"assets/classic-negro.png";});
 let selectedSize=null,activeCat="all";
 const sizeRoot=document.getElementById("sizes");
 sizes.forEach(s=>{const b=document.createElement("button");b.className="size";b.textContent=s;b.setAttribute("aria-label","Filtrar talla "+s);b.onclick=()=>{selectedSize=selectedSize===s?null:s;renderSizes();render()};sizeRoot.appendChild(b)});
